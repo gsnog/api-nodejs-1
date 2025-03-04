@@ -5,9 +5,9 @@ import { GetUserUseCase } from "@/use-cases/get-user-use-case"
 import { ResourceNotFindError } from "@/use-cases/errors/resource-not-found-error"
 
 export async function get(request: FastifyRequest, reply: FastifyReply) {
-    // ✅ Criando a validação correta para userId nos parâmetros da rota
+   
     const getParamsSchema = z.object({
-        userId: z.coerce.number(), // 🔥 Converte userId para número automaticamente
+        userId: z.coerce.number(), 
     });
 
     const { userId } = getParamsSchema.parse(request.params);

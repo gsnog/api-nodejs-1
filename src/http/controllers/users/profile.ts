@@ -6,12 +6,12 @@ export async function profile(request: FastifyRequest, reply: FastifyReply) {
   try {
     await request.jwtVerify();
 
-    // 🟢 Debug: Verifique o conteúdo de request.user
-    console.log("🟢 request.user:", request.user);
-    console.log("🟢 Tipo de request.user.sub:", typeof request.user.sub);
-    console.log("🟢 Valor de request.user.sub:", request.user.sub);
+   
+    console.log("request.user:", request.user);
+    console.log("Tipo de request.user.sub:", typeof request.user.sub);
+    console.log("Valor de request.user.sub:", request.user.sub);
 
-    const userId = Number(request.user.sub); // 🔥 Converte para número
+    const userId = Number(request.user.sub); 
 
     const prismaUsersRepository = new PrismaUsersRepository();
     const getUserUseCase = new GetUserUseCase(prismaUsersRepository);
@@ -25,7 +25,7 @@ export async function profile(request: FastifyRequest, reply: FastifyReply) {
       },
     });
   } catch (err) {
-    console.error("❌ Erro ao buscar perfil:", err);
+    console.error("Erro ao buscar perfil:", err);
     return reply.status(401).send({ error: "Token inválido ou não fornecido" });
   }
 }

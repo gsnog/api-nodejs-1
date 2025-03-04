@@ -23,7 +23,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
             userId
         });
     } catch (err) {
-        console.error("❌ ERRO AO REGISTRAR POST:", err); // Log detalhado
+        console.error("ERRO AO REGISTRAR POST:", err); 
         if (err instanceof TitleAlreadyExists) {
             return reply.status(409).send({ message: err.message });
         }

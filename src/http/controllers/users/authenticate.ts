@@ -19,7 +19,7 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
       password,
     });
 
-    // Gerar os tokens corretamente
+
     const token = await reply.jwtSign({}, { sub: user.id.toString() });
     const refreshToken = await reply.jwtSign({}, { sub: user.id.toString(), expiresIn: "7d" });
 

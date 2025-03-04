@@ -15,9 +15,9 @@ export async function deleteUser(request: FastifyRequest, reply: FastifyReply) {
         const prismaUsersRepository = new PrismaUsersRepository()
         const deleteUserUseCase = new DeleteUserUseCase(prismaUsersRepository)
 
-        await deleteUserUseCase.execute({ userId }) // Apenas executa, não precisa armazenar
+        await deleteUserUseCase.execute({ userId }) 
 
-        return reply.status(204).send() // Status 204 significa "No Content"
+        return reply.status(204).send() 
     } catch (err) {
         if (err instanceof ResourceNotFindError) {
             return reply.status(404).send({ message: err.message });

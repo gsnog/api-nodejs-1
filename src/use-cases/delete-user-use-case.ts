@@ -1,4 +1,3 @@
-
 import { UsersRepository } from "@/repositories/users-repositories";
 import { User } from "@prisma/client";
 import { ResourceNotFindError } from "./errors/resource-not-found-error";

@@ -24,7 +24,7 @@ model User {
 
 model Post {
   id         Int      @id @default(autoincrement())
-  titulo     String
+  titulo     String   @unique
   conteudo   String
   created_at DateTime @default(now())
   userId     Int
